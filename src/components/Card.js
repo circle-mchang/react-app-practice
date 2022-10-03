@@ -1,13 +1,15 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 function Card(props) {
     return (
         <React.Fragment>
+            <h3>{props.cardNumber}</h3>
 
         </React.Fragment>
     )
 }
-
+// This is just defining what type of prop they are
 Card.propTypes = {
     cardNumber: PropTypes.string,
     CVV: PropTypes.string,
