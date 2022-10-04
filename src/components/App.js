@@ -1,12 +1,12 @@
 import React from "react";
 import Header from "./Header";
-import CardList from "./CardList"
+import CardControl from "./CardControl"
 
 function App() {
   return (
     <React.Fragment>
       <Header />
-      <CardList />
+      <CardControl />
     </React.Fragment>
   );
 }
