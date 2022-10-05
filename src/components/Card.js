@@ -5,6 +5,7 @@ function Card(props) {
     return (
         <React.Fragment>
             <h3>{props.cardNumber}</h3>
+            <h3>{props.CVV}</h3>
 
         </React.Fragment>
     )

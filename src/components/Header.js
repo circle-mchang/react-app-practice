@@ -2,7 +2,7 @@ import React from "react";
 
 function Header(){
   return (
-    <h1>Add Card</h1>
+    <h1>Circle Add A Credit Card</h1>
   );
 }
 
