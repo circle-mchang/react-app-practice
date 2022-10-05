@@ -9,25 +9,27 @@ class CardControl extends React.Component {
             formVisibleOnPage: false
         }
     }
+
     handleClick = () => {
-        this.setState({formVisibleOnPage: true})
+        // pass current state(formVisibleOnPage) to prevState and set new state to opposite of the old state
+        this.setState(prevState => (
+            {formVisibleOnPage: !prevState.formVisibleOnPage}))
     }
 
     render(){
         let currentlyVisibleState = null;
-        let addCardButton = null;
+        let buttonText = null;
         if(this.state.formVisibleOnPage) {
             currentlyVisibleState = <NewCardForm/>
+            buttonText = "Return to Card List"
         } else {
             currentlyVisibleState = <CardList/>
-            addCardButton = <button onClick={this.handleClick}>
-                Add Card
-            </button>
+            buttonText = "Link New Card"
         }
         return (
             <React.Fragment>
                 {currentlyVisibleState}
-                {addCardButton}
+                <button onClick={this.handleClick}>{buttonText}</button>
             </React.Fragment>
         );
     }
