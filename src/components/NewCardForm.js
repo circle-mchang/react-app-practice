@@ -1,9 +1,19 @@
 import React from "react";
 
-function NewCardForm(props){
+function NewCardForm(){
+    function handleNewCardFormSubmission(event) {
+        event.preventDefault();
+        console.log(event.target.cardNumber.value);
+    }
     return (
         <React.Fragment>
-            <h3>This is a form</h3>
+            <form onSubmit={handleNewCardFormSubmission}>
+                <input
+                type='string'
+                name='cardNumber'
+                placeholder='Card Number'/>
+                <button type="submit">Add Card</button>
+            </form>
         </React.Fragment>
     )
 }
