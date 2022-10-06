@@ -6,7 +6,9 @@ class CardControl extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            formVisibleOnPage: false
+            formVisibleOnPage: false,
+            // move mainCardList into state
+            mainCardList: [] 
         }
     }
 
@@ -16,14 +18,21 @@ class CardControl extends React.Component {
             {formVisibleOnPage: !prevState.formVisibleOnPage}))
     }
 
+    handleAddingNewCardToList = (newCard) => {
+        const newMainCardList = this.state.mainCardList.concat(newCard);
+        this.setState({mainCardList: newMainCardList, formVisibleOnPage: false});
+    }
+
     render(){
         let currentlyVisibleState = null;
         let buttonText = null;
         if(this.state.formVisibleOnPage) {
-            currentlyVisibleState = <NewCardForm/>
+            // passing handleAddingNewCardToList method down to the NewCardForm component as a prop
+            currentlyVisibleState = <NewCardForm onNewCardCreation={this.handleAddingNewCardToList}/>
             buttonText = "Return to Card List"
         } else {
-            currentlyVisibleState = <CardList/>
+            // passing mainCardList state as a prop to cardList <CardList cardList={this.state.mainCardList}/>
+            currentlyVisibleState = <CardList cardList={this.state.mainCardList}/>
             buttonText = "Link New Card"
         }
         return (

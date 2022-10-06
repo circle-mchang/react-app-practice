@@ -1,8 +1,14 @@
 import React from "react";
+import PropTypes from "prop-types"
+import { v4 } from "uuid";
 
-function NewCardForm(){
+function NewCardForm(props){
     function handleNewCardFormSubmission(event) {
         event.preventDefault();
+        props.onNewCardCreation({
+            cardNumber: event.target.cardNumber.value,
+            id: v4()
+        })
         console.log(event.target.cardNumber.value);
     }
     return (
@@ -16,6 +22,10 @@ function NewCardForm(){
             </form>
         </React.Fragment>
     )
+}
+
+NewCardForm.propTypes = {
+    onNewCardCreation: PropTypes.func
 }
 
 export default NewCardForm;
