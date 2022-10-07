@@ -14,8 +14,8 @@ function Card(props) {
 Card.propTypes = {
     cardNumber: PropTypes.string,
     CVV: PropTypes.string,
-    expY: PropTypes.string,
     expM: PropTypes.string,
+    expY: PropTypes.string,
     fullName: PropTypes.string,
     addressl1: PropTypes.string,
     postal: PropTypes.string,
