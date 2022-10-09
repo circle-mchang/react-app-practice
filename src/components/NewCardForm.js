@@ -11,6 +11,7 @@ function NewCardForm(props){
         })
         console.log(event.target.cardNumber.value);
     }
+    // This will show all the necessary parameters for the API call
     return (
         <React.Fragment>
             <form onSubmit={handleNewCardFormSubmission}>
